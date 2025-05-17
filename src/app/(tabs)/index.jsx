@@ -7,7 +7,7 @@ export default function App() {
             <Text className="text-base dark:text-white">
                 This is the home page!
             </Text>
-            <Link href="/about" className="text-xl underline dark:text-white">
+            <Link href="/about1" className="text-xl underline dark:text-white">
                 Go to About screen
             </Link>
         </View>
