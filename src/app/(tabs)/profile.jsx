@@ -1,10 +1,10 @@
-import { Text, View } from "react-native";
+import { View, Text } from "react-native";
 
-export default function App() {
+export default function About() {
     return (
         <View className="flex-1 items-center justify-center bg-white dark:bg-gray-900">
             <Text className="text-lg dark:text-white">
-                Open up index.jsx to start working on your app!
+                This is the profile page!
             </Text>
         </View>
     );

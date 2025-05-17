@@ -5,20 +5,17 @@ import "../../global.css";
 
 export default function RootLayout() {
     return (
-        <SafeAreaProvider>
-            <SafeAreaView
-                className="flex-1 bg-white dark:bg-gray-900"
-                edges={["bottom", "top"]}
-            >
-                <Stack
-                    screenOptions={{
-                        headerShown: false,
-                        contentStyle: { backgroundColor: "#ffffff" },
-                    }}
-                >
-                    <StatusBar style="auto" />
-                </Stack>
-            </SafeAreaView>
-        </SafeAreaProvider>
+        // <SafeAreaProvider>
+        // <SafeAreaView className="flex-1" edges={["top", "bottom"]}>
+        <Stack
+            screenOptions={{
+                headerShown: false,
+            }}
+        >
+            <StatusBar style="auto" />
+            <Stack.Screen name="(tabs)" />
+        </Stack>
+        // </SafeAreaView>
+        // </SafeAreaProvider>
     );
 }
