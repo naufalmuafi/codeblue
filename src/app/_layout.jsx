@@ -6,16 +6,16 @@ import "../../global.css";
 export default function RootLayout() {
     return (
         <SafeAreaProvider>
-            {/* <SafeAreaView className="flex-1" edges={["top", "bottom"]}> */}
-            <Stack
-                screenOptions={{
-                    headerShown: false,
-                }}
-            >
+            <SafeAreaView className="flex-1" edges={["top", "bottom"]}>
                 <StatusBar style="auto" />
-                <Stack.Screen name="(tabs)" />
-            </Stack>
-            {/* </SafeAreaView> */}
+                <Stack
+                    screenOptions={{
+                        headerShown: false,
+                    }}
+                >
+                    <Stack.Screen name="(tabs)" />
+                </Stack>
+            </SafeAreaView>
         </SafeAreaProvider>
     );
 }
