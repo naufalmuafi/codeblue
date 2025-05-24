@@ -31,7 +31,7 @@ export default function Button({ label, theme, onPress = () => {} }) {
         <View className="w-[320px] h-[68px] mx-[20px] items-center justify-center p-3">
             <Pressable
                 className="w-full h-full flex items-center justify-center rounded-[10px]"
-                onPress={() => alert("You pressed a button.")}
+                onPress={onPress}
             >
                 <Text className="text-base dark:text-white"> {label} </Text>
             </Pressable>
