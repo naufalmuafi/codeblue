@@ -7,7 +7,6 @@ export default function RootLayout() {
     return (
         <SafeAreaProvider>
             <SafeAreaView className="flex-1" edges={["top", "bottom"]}>
-                <StatusBar style="auto" />
                 <Stack
                     screenOptions={{
                         headerShown: false,
@@ -15,6 +14,7 @@ export default function RootLayout() {
                 >
                     <Stack.Screen name="(tabs)" />
                 </Stack>
+                <StatusBar style="auto" />
             </SafeAreaView>
         </SafeAreaProvider>
     );
