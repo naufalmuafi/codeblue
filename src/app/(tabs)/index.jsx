@@ -1,5 +1,6 @@
+import domtoimage from "dom-to-image";
 import { useState, useRef } from "react";
-import { View } from "react-native";
+import { View, Platform } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 import { captureRef } from "react-native-view-shot";
@@ -55,19 +56,36 @@ export default function App() {
     };
 
     const onSaveImageAsync = async () => {
-        try {
-            const localUri = await captureRef(imageRef, {
-                height: 440,
-                quality: 1,
-            });
+        if (Platform.OS !== "web") {
+            try {
+                const localUri = await captureRef(imageRef, {
+                    height: 440,
+                    quality: 1,
+                });
 
-            await MediaLibrary.saveToLibraryAsync(localUri);
+                await MediaLibrary.saveToLibraryAsync(localUri);
 
-            if (localUri) {
-                alert("Image saved successfully!");
+                if (localUri) {
+                    alert("Image saved successfully!");
+                }
+            } catch (error) {
+                console.error("Error saving image:", error);
             }
-        } catch (error) {
-            console.error("Error saving image:", error);
+        } else {
+            try {
+                const dataUrl = await domtoimage.toJpeg(imageRef.current, {
+                    quality: 0.95,
+                    width: 320,
+                    height: 440,
+                });
+
+                let link = document.createElement("a");
+                link.download = "image.jpeg";
+                link.href = dataUrl;
+                link.click();
+            } catch (error) {
+                console.error("Error saving image:", error);
+            }
         }
     };
 
